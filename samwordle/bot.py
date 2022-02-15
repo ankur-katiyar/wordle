@@ -4,7 +4,7 @@ import pandas as pd
 
 
 class Agent:
-    def __init__(self, game, f_name="./samwordle/data/words.csv"):
+    def __init__(self, game, f_name="./wordle/samwordle/data/words.csv"):
         self.vowels = ["A", "E", "I", "O", "U", "Y"]
         w_bank = pd.read_csv(f_name)
         w_bank = w_bank[w_bank["words"].str.len() == game.letters]

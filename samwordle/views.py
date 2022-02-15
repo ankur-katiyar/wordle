@@ -19,7 +19,7 @@ ROWS = 6
 LETTERS = 5
 GAMES = 10
 
-w_bank = pd.read_csv("./samwordle/data/words.csv")
+w_bank = pd.read_csv("./wordle/samwordle/data/words.csv")
 w_bank = w_bank[w_bank["words"].str.len() == LETTERS]
 w_bank["words"] = w_bank["words"].str.upper()  # Convert all words to uppercase
 
