@@ -2,9 +2,16 @@ import random
 import numpy as np
 import pandas as pd
 
+from sys import platform
+
+if platform == "win32":
+    file_name = "./samwordle/data/words.csv"
+else:
+    file_name = "./wordle/samwordle/data/words.csv"
+
 
 class Agent:
-    def __init__(self, game, f_name="./wordle/samwordle/data/words.csv"):
+    def __init__(self, game, f_name=file_name):
         self.vowels = ["A", "E", "I", "O", "U", "Y"]
         w_bank = pd.read_csv(f_name)
         w_bank = w_bank[w_bank["words"].str.len() == game.letters]
@@ -74,11 +81,14 @@ class Agent:
             self.calc_letter_probs()  # Recalculate letter position probability
         for x in range(self.game.letters):
             if self.prediction[x] == "":
-                self.w_bank["w-score"] += self.w_bank[f"p-{x}"]
+                try:
+                    self.w_bank["w-score"] += self.w_bank[f"p-{x}"]
+                except:
+                    return "NO SUCH WORD EXISTS"
         if True not in [True for s in self.prediction if s in self.vowels]:
             self.w_bank["w-score"] += self.w_bank["v-count"] / self.game.letters
         mv_bank = self.w_bank[self.w_bank["w-score"] == self.w_bank["w-score"].max()]
-        # print(self.w_bank)
-        # print(mv_bank["words"].tolist())
+        print(self.w_bank)
+        print(mv_bank["words"].tolist())
         result = random.choice(mv_bank["words"].tolist())
         return result
