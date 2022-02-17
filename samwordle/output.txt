@@ -1,0 +1,24 @@
+       words  v-count       p-0 pos-0  ...  pos-3       p-4  pos-4   w-score
+10923  SORES        2  0.120663     S  ...      E  0.305012      S  0.858982
+
+[1 rows x 13 columns]
+[[('S', 'G'), ('O', 'B'), ('R', 'G'), ('E', 'Y'), ('S', 'B')]]
+Wordlist after filtering for Greens
+['SERVE', 'SHRUB', 'SPRAY', 'SURER', 'SCRAP', 'SHRUG', 'STRAY', 'SIREN', 'SORRY', 'STRUT', 'SCRUB', 'STRAW', 'STRAP', 'SERUM', 'SHREW', 'SYRUP', 'SCREW', 'SPREE', 'SURLY', 'STRIP', 'SCRUM', 'SPRIG', 'SURGE', 'SERIF', 'SCREE', 'SCRAM', 'SARAN', 'SARDS', 'SARED', 'SAREE', 'SARGE', 'SARGO', 'SARIN', 'SARIS', 'SARKS', 'SARKY', 'SAROD', 'SAROS', 'SARUS', 'SCRAB', 'SCRAE', 'SCRAG', 'SCRAN', 'SCRAT', 'SCRAW', 'SCRAY', 'SCRIM', 'SCRIP', 'SCROB', 'SCROD', 'SCROG', 'SCROW', 'SERAC', 'SERAI', 'SERAL', 'SERED', 'SERER', 'SERES', 'SERFS', 'SERGE', 'SERIC', 'SERIN', 'SERKS', 'SERON', 'SEROW', 'SERRA', 'SERRE', 'SERRS', 'SERRY', 'SERVO', 'SHRED', 'SHRIS', 'SHROW', 'SIRED', 'SIREE', 'SIRES', 'SIRIH', 'SIRIS', 'SIROC', 'SIRRA', 'SIRUP', 'SKRAN', 'SKRIK', 'SORAL', 'SORAS', 'SORBO', 'SORBS', 'SORDA', 'SORDO', 'SORDS', 'SORED', 'SOREE', 'SOREL', 'SORER', 'SORES', 'SOREX', 'SORGO', 'SORNS', 'SORRA', 'SORTA', 'SORTS', 'SORUS', 'SPRAD', 'SPRAG', 'SPRAT', 'SPRED', 'SPREW', 'SPRIT', 'SPROD', 'SPROG', 'SPRUE', 'SPRUG', 'STRAD', 'STRAE', 'STRAG', 'STRAK', 'STREP', 'STREW', 'STRIA', 'STRIG', 'STRIM', 'STROP', 'STROW', 'STROY', 'STRUM', 'SURAH', 'SURAL', 'SURAS', 'SURAT', 'SURDS', 'SURED', 'SURES', 'SURFS', 'SURFY', 'SURGY', 'SURRA', 'SYRAH', 'SYREN']
+Black Processing for x: regstr - ^(?=.*O)
+Wordlist after filtering for Blacks
+['SERVE', 'SHRUB', 'SPRAY', 'SURER', 'SCRAP', 'SHRUG', 'STRAY', 'SIREN', 'STRUT', 'SCRUB', 'STRAW', 'STRAP', 'SERUM', 'SHREW', 'SYRUP', 'SCREW', 'SPREE', 'SURLY', 'STRIP', 'SCRUM', 'SPRIG', 'SURGE', 'SERIF', 'SCREE', 'SCRAM', 'SARAN', 'SARDS', 'SARED', 'SAREE', 'SARGE', 'SARIN', 'SARIS', 'SARKS', 'SARKY', 'SARUS', 'SCRAB', 'SCRAE', 'SCRAG', 'SCRAN', 'SCRAT', 'SCRAW', 'SCRAY', 'SCRIM', 'SCRIP', 'SERAC', 'SERAI', 'SERAL', 'SERED', 'SERER', 'SERES', 'SERFS', 'SERGE', 'SERIC', 'SERIN', 'SERKS', 'SERRA', 'SERRE', 'SERRS', 'SERRY', 'SHRED', 'SHRIS', 'SIRED', 'SIREE', 'SIRES', 'SIRIH', 'SIRIS', 'SIRRA', 'SIRUP', 'SKRAN', 'SKRIK', 'SPRAD', 'SPRAG', 'SPRAT', 'SPRED', 'SPREW', 'SPRIT', 'SPRUE', 'SPRUG', 'STRAD', 'STRAE', 'STRAG', 'STRAK', 'STREP', 'STREW', 'STRIA', 'STRIG', 'STRIM', 'STRUM', 'SURAH', 'SURAL', 'SURAS', 'SURAT', 'SURDS', 'SURED', 'SURES', 'SURFS', 'SURFY', 'SURGY', 'SURRA', 'SYRAH', 'SYREN']
+Wordlist after filtering for Yellow - Incorrect Position
+['SERVE', 'SHRUB', 'SPRAY', 'SCRAP', 'SHRUG', 'STRAY', 'STRUT', 'SCRUB', 'STRAW', 'STRAP', 'SERUM', 'SYRUP', 'SURLY', 'STRIP', 'SCRUM', 'SPRIG', 'SURGE', 'SERIF', 'SCRAM', 'SARAN', 'SARDS', 'SARGE', 'SARIN', 'SARIS', 'SARKS', 'SARKY', 'SARUS', 'SCRAB', 'SCRAE', 'SCRAG', 'SCRAN', 'SCRAT', 'SCRAW', 'SCRAY', 'SCRIM', 'SCRIP', 'SERAC', 'SERAI', 'SERAL', 'SERFS', 'SERGE', 'SERIC', 'SERIN', 'SERKS', 'SERRA', 'SERRE', 'SERRS', 'SERRY', 'SHRIS', 'SIRIH', 'SIRIS', 'SIRRA', 'SIRUP', 'SKRAN', 'SKRIK', 'SPRAD', 'SPRAG', 'SPRAT', 'SPRIT', 'SPRUE', 'SPRUG', 'STRAD', 'STRAE', 'STRAG', 'STRAK', 'STRIA', 'STRIG', 'STRIM', 'STRUM', 'SURAH', 'SURAL', 'SURAS', 'SURAT', 'SURDS', 'SURFS', 'SURFY', 'SURGY', 'SURRA', 'SYRAH']
+Yellow Processing for x: regstr - ^(?=.*E)
+Wordlist after filtering for Yellow on other positions
+['SERVE', 'SERUM', 'SURGE', 'SERIF', 'SARGE', 'SCRAE', 'SERAC', 'SERAI', 'SERAL', 'SERFS', 'SERGE', 'SERIC', 'SERIN', 'SERKS', 'SERRA', 'SERRE', 'SERRS', 'SERRY', 'SPRUE', 'STRAE']
+[('S', 'G'), ('O', 'B'), ('R', 'G'), ('E', 'Y'), ('S', 'B')]
+       words  v-count       p-0 pos-0  ...  pos-3       p-4  pos-4   w-score
+10437  SERRS        1  0.120663     S  ...      R  0.305012      S  0.698843
+
+[1 rows x 13 columns]
+       words  v-count  p-0 pos-0   p-1  ...  p-3  pos-3  p-4  pos-4 w-score
+10436  SERRE        1  1.0     S  0.75  ...  0.2      R  0.4      E    3.35
+
+[1 rows x 13 columns]

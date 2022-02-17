@@ -27,10 +27,6 @@ ROWS = 6
 LETTERS = 5
 GAMES = 10
 
-w_bank = pd.read_csv(file_name)
-w_bank = w_bank[w_bank["words"].str.len() == LETTERS]
-w_bank["words"] = w_bank["words"].str.upper()  # Convert all words to uppercase
-
 
 def process(u_inp, game, bot, guess, i):
     game.colours[i] = [s for s in str(u_inp).upper()]
@@ -83,6 +79,17 @@ def index(request):
         )
 
     your_options.append(u_inp)
+
+    w_bank = pd.read_csv(file_name)
+    w_bank = w_bank[w_bank["words"].str.len() == LETTERS]
+    w_bank["words"] = w_bank["words"].str.upper()  # Convert all words to uppercase
+
+    for word in w_bank:
+        print(word["words"])
+
+    print(w_bank)
+    print("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+")
+    print(file_name)
 
     game = samwordle(None, rows=ROWS, letters=LETTERS)
     bot = Agent(game)
