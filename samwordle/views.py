@@ -60,6 +60,12 @@ def return_HttpResponse(request, select_list, guess_list, active_word, error_msg
     return HttpResponse(template.render(context, request))
 
 
+def remove_duplicates(list_var):
+    seen = set()
+    seen_add = seen.add
+    return [x for x in list_var if not (x in seen or seen_add(x))]
+
+
 # Create your views here.
 def request_wordle(request):
     # def index(request):
@@ -68,6 +74,8 @@ def request_wordle(request):
     print("--------------------------------------------------------------------")
     # print(f' Your option is --> {request.session.get("your_options", False)}')
     select_list, guess_list, word_list = retrieve_session_vars(request)
+    select_list = remove_duplicates(select_list)
+
     print(f" Your selectlist is -->       {select_list}")
     # print(f" Your wordlist is -->         {guess_list}")
 
@@ -89,7 +97,7 @@ def request_wordle(request):
 
     u_inp = mask
 
-    if u_inp == "XXXXX":
+    if u_inp == "XXXXX" or u_inp == "":
         u_inp = "RESET"
 
     if len(u_inp) != 5:
@@ -99,7 +107,7 @@ def request_wordle(request):
             select_list,
             guess_list,
             selected_word,
-            "===> Please provide a valid color mask <==",
+            "Press Reset the game",
         )
 
     if u_inp.upper() == "RESET":

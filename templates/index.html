@@ -57,9 +57,10 @@
 <body>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <br><br><br><br>
-    <h1 style="color: darkblue; font-size: 46px;">Samar's Wordle Assist.</h1>
+    <h1 style="color: darkblue; font-size: 46px; ">"Samar's Wordle Assist"</h1>
     <br><br><br><br>
     <hr>
+
     <!--
     <p> For options - you can enter B for no hit, Y for a hit but not in the correct position and G for a hit in the
         right position </p>
@@ -81,8 +82,10 @@
             {% csrf_token %}
             <p style="color: red; font-size: 16px;"> {{error_msg}}</p>
 
-            <label for="guess_list">Your Guess Word List: </label>
-            <select name="selected_word" onclick=setValue()>
+            <label style="color: darkorange; font-size: 20px; font-family: Verdana, sans-serif;" for="guess_list">Your
+                Guess Word List: </label>
+            <select style="color: darkgreen; font-size: 15px; font-family: Verdana, sans-serif;" name="selected_word"
+                onclick=setValue()>
                 {% for guess in guess_list %}
                 <option value="{{ guess }}">{{ guess }}</option>
                 {% endfor %}
@@ -123,8 +126,8 @@
     </div>
     <br><br>
 
-    <h4>Selected Options </h4>
-    <ul>
+    <h4 style="color: darkgreen; font-size: 15px; font-family: Verdana, sans-serif;">Selected Options </h4>
+    <ul style="color: darkblue; font-size: 13px; font-family: Verdana, sans-serif;">
         {% for i in list %}
         <li>{{ i }}</li>
         {% endfor %}
@@ -302,5 +305,9 @@
 
                                     </table>
 </footer>
+<a href="https://github.com/ankur-katiyar/wordle">
+    <i class="fa fa-github fa"></i>
+</a>
+<label style="color: darkblue; font-size: 10px; font-family: Verdana, sans-serif;">Get source</label>
 
 </html>
