@@ -13,7 +13,10 @@
 
         body {
             max-width: max-content;
+            text-align: center;
             margin: auto;
+            /*max-width: max-content;
+            margin: auto;*/
             /*height: 10%;
             background-color: lightgreen;
             font-family: 'nyt-franklin-700' !important;
@@ -57,9 +60,11 @@
 <body>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <br><br><br><br>
-    <h1 style="color: darkblue; font-size: 46px; ">"Samar's Wordle Assist"</h1>
-    <br><br><br><br>
+    <h1 style="color: darkblue; font-size: 46px; font-family: Arial, Helvetica, sans-serif;">Wordle Assist</h1>
     <hr>
+    <h3 style="margin: 0px; font-size: 13px; color: red; text-align: center; font-family: Arial;">
+        <span>Made for my baby boy - Samar</span>
+    </h3>
 
     <!--
     <p> For options - you can enter B for no hit, Y for a hit but not in the correct position and G for a hit in the
@@ -130,12 +135,36 @@
     <h4 style="color: darkgreen; font-size: 15px; font-family: Verdana, sans-serif;">Selected Words </h4>
     <ul style="color: darkblue; font-size: 13px; font-family: Verdana, sans-serif;">
         {% for i in list %}
-        <li>{{ i }}</li>
+        <li style="  list-style-type: none; margin-left: -30px; padding-right: 0;">{{ i }}</li>
         {% endfor %}
     </ul>
     <br><br>
     <hr>
     <br>
+    <h3 style="margin: 0px; font-size: 18px; color: black; text-align: center; font-family: Arial;">
+        <span>Ankur Katiyar</span>
+    </h3>
+    <p style="margin: 0px; color: rgb(154, 154, 154); font-size: 14px; line-height: 22px; font-family: Arial;">
+        <span>caffeine-to-code converter</span>
+    </p>
+    <div style="margin-left: 0px; margin-right: 5px; font-family: Arial; ">
+        <a href="https://www.linkedin.com/in/ankur-katiyar/">
+            <i class="fa fa-linkedin"></i>
+        </a>
+        <a href=" https://twitter.com/ankurkatiyar" target="_blank">
+            <i class='fa fa-twitter'></i>
+        </a>
+        <a href="https://github.com/ankur-katiyar" target="_blank">
+            <i class="fa fa-github"></i>
+        </a>
+    </div>
+    <a href="https://github.com/ankur-katiyar/wordle">
+        <i class="fa fa-github fa"></i>
+    </a>
+    <label style="color: darkblue; font-size: 10px; font-family: Arial, sans-serif; text-align: left;">Get
+        source</label>
+
+
     <script>
         var divItems = document.getElementsByClassName("word");
         window.onload = init;
@@ -242,73 +271,6 @@
 </body>
 
 <footer>
-    <table cellpadding="0" cellspacing="0" style="vertical-align: -webkit-baseline-middle; ; font-family: Arial;">
-        <tbody>
-            <tr>
-                <td>
-                    <table cellpadding="0" cellspacing="0"
-                        style="vertical-align: -webkit-baseline-middle; ; font-family: Arial;">
-                        <tbody>
-                            <tr>
-                                <td width="46">
-                                    <div></div>
-                                </td>
-                                <td style="padding: 0px; vertical-align: middle;">
-                                    <h3 style="margin: 0px; font-size: 18px; color: black;">
-                                        <span>Ankur Katiyar</span>
-                                    </h3>
-                                    <p
-                                        style="margin: 0px; color: rgb(154, 154, 154); font-size: 14px; line-height: 22px;">
-                                        <span>caffeine-to-code converter</span>
-                                    </p>
-                                    <table cellpadding="0" cellspacing="0"
-                                        style="vertical-align: -webkit-baseline-middle; ; font-family: Arial; width: 100%;">
-                                        <tbody>
-                                            <tr>
-                                                <td height="0"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <table cellpadding="0" cellspacing="0"
-                                                        style="vertical-align: -webkit-baseline-middle; ; font-family: Arial; display: inline-block;">
-                                                        <tbody>
-                                                            <tr style="text-align: center;">
-                                                                <td width="5">
-                                                                    <div style="margin-left: 0px; margin-right: 5px; ">
-                                                                        <a
-                                                                            href="https://www.linkedin.com/in/ankur-katiyar/">
-                                                                            <i class="fa fa-linkedin"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </td>
-                                                                <td width="5">
-                                                                    <div
-                                                                        style="margin-left: 0px; margin-right: 5px; color: black;">
-                                                                        <a href=" https://twitter.com/ankurkatiyar"
-                                                                            target="_blank">
-                                                                            <i class='fa fa-twitter'></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </td>
-                                                                <td width="5">
-                                                                    <div style="margin-left: 0px; margin-right: 5px;">
-                                                                        <a href="https://github.com/ankur-katiyar"
-                                                                            target="_blank">
-                                                                            <i class="fa fa-github"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                            </tr>
-
-                                    </table>
 </footer>
-<a href="https://github.com/ankur-katiyar/wordle">
-    <i class="fa fa-github fa"></i>
-</a>
-<label style="color: darkblue; font-size: 10px; font-family: Verdana, sans-serif;">Get source</label>
 
 </html>
