@@ -1,2 +1,5 @@
 # wordle
-Wordle Repo made in Django Framework
+Wordle Assist made in Django Framework
+For my lovely sweet boy - Samar
+
+Love, from Papa.
