@@ -113,14 +113,79 @@ def request_wordle(request):
 
     if u_inp.upper() == "RESET":
         print("Resetting!!!")
-        save_session_vars(request, [], ["CRANE"], [])
+        # save_session_vars(request, [], ["CRANE"], [])
+        save_session_vars(
+            request,
+            [],
+            [
+                "SLATE",
+                "SAUCE",
+                "SLICE",
+                "SHALE",
+                "SAUTE",
+                "SHARE",
+                "SOOTY",
+                "SHINE",
+                "SUITE",
+                "CRANE",
+            ],
+            [],
+        )
         return return_HttpResponse(
-            request, [], ["CRANE"], "CRANE", "Game has been reset!"
+            request,
+            [],
+            [
+                "SLATE",
+                "SAUCE",
+                "SLICE",
+                "SHALE",
+                "SAUTE",
+                "SHARE",
+                "SOOTY",
+                "SHINE",
+                "SUITE",
+                "CRANE",
+            ],
+            "SLATE",
+            "",
         )
 
     if u_inp.upper() == "GGGGG":
-        save_session_vars(request, [], ["CRANE"], [])
-        return return_HttpResponse(request, [], ["CRANE"], "CRANE", "New Game started!")
+        save_session_vars(
+            request,
+            [],
+            [
+                "SLATE",
+                "SAUCE",
+                "SLICE",
+                "SHALE",
+                "SAUTE",
+                "SHARE",
+                "SOOTY",
+                "SHINE",
+                "SUITE",
+                "CRANE",
+            ],
+            [],
+        )
+        return return_HttpResponse(
+            request,
+            [],
+            [
+                "SLATE",
+                "SAUCE",
+                "SLICE",
+                "SHALE",
+                "SAUTE",
+                "SHARE",
+                "SOOTY",
+                "SHINE",
+                "SUITE",
+                "CRANE",
+            ],
+            "SLATE",
+            "",
+        )
 
     select_list.append(selected_word)
     wordle = Wordle(word_list)
