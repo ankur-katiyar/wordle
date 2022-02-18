@@ -46,10 +46,10 @@
         {% csrf_token %}
         <p style="color: red; font-size: 16px;"> {{error_msg}}</p>
 
-        <label for="word_list">Your Guess Word List: </label>
+        <label for="guess_list">Your Guess Word List: </label>
         <select name="selected_word">
-            {% for word in word_list %}
-            <option value="{{ word }}">{{ word }}</option>
+            {% for guess in guess_list %}
+            <option value="{{ guess }}">{{ guess }}</option>
             {% endfor %}
         </select>
         <br>

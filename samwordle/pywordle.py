@@ -13,7 +13,7 @@ logging = True
 
 
 class Wordle:
-    def __init__(self, letters=5, word_bank=[]):
+    def __init__(self, word_bank, letters=5):
         self.letters = 5
         self.wordleBank = WordBank(self.letters, word_bank)
         self.word_list = list()
@@ -47,8 +47,11 @@ class WordBank:
         if df_dict == []:
             w_bank = pd.read_csv(f_name)
         else:
-            labels = ["words"]
-            w_bank = pd.DataFrame.from_records(df_dict, labels)
+            if logging:
+                print(f"Initializing Word Bank from Session Variable")
+                print(f"Initializing from df_dict ==> {df_dict}")
+            # labels = ["words"]
+            w_bank = pd.DataFrame(df_dict, columns=["words"])
 
         w_bank = w_bank[w_bank["words"].str.len() == letters]
         w_bank["words"] = w_bank["words"].str.upper()  # Convert all words to uppercase
