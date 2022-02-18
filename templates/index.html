@@ -6,49 +6,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Wordle Solver for Samar</title>
-    <style type="text/css">
+    <style>
+        html {
+            height: 100%;
+        }
+
         body {
-            width: 70%;
+            max-width: max-content;
+            margin: auto;
+            /*height: 10%;
+            background-color: lightgreen;
+            font-family: 'nyt-franklin-700' !important;
             margin: 0 auto;
+            padding: 0;
+            /* Prevent scrollbar appearing on page transition */
+            /*overflow-y: hidden;*/
         }
     </style>
 </head>
 
 <body>
-    <div style="float: center;" id="wrapper">
-        <h1 style="color: blue; font-size: 46px;">Welcome to SamWordle.</h1>
-        <hr>
-        <p style="color: green; font-size: 16px;"> <b> Your current Word is {{ data }} </b></p>
-        <hr>
-        <p> For options - you can enter B for no hit, Y for a hit but not in the correct position and G for a hit in the
-            right position </p>
-        <p>
-            For example, if your current wordle has a
-        </p>
-        <img src="https://sat02pap002files.storage.live.com/y4meOuWKOPKFLCBxEQZOumiNCro57_S7lcyOUAnb18HLfWaIbYnXkqIa266SQMpAh4PQQTALQlXyA2vLs6qa8adiwVavWQYsBbgsionBsD8gMaDH8utyO2qwsaSk6MKWwajWsBcIBo7RNDCCxcZGNDUgy8pEdylcDrfcmI_Uh9LBEneEk32gVIB8acNSNXZIIIqoKEfy7xQibtoYV7GJdQiMA/wordle-example.jfif?psid=1&width=2560&height=1185"
-            style="width:400px;height:50px;">
-        <p> You should enter BGYGY in the textbox </p>
-        <p> Refer to the following link for a Demo <a href="https://youtu.be/VZI2RRafCtw">SamWordle Demo</a>
-        </p>
-        <hr>
-        <br>
-        <br>
+    <h1 style="color: darkblue; font-size: 46px;">Welcome to Samar's Wordle Assist.</h1>
+    <hr>
+    <p> For options - you can enter B for no hit, Y for a hit but not in the correct position and G for a hit in the
+        right position </p>
+    <p>
+        For example, if your current wordle has a
+    </p>
+    <img src="https://sat02pap002files.storage.live.com/y4meOuWKOPKFLCBxEQZOumiNCro57_S7lcyOUAnb18HLfWaIbYnXkqIa266SQMpAh4PQQTALQlXyA2vLs6qa8adiwVavWQYsBbgsionBsD8gMaDH8utyO2qwsaSk6MKWwajWsBcIBo7RNDCCxcZGNDUgy8pEdylcDrfcmI_Uh9LBEneEk32gVIB8acNSNXZIIIqoKEfy7xQibtoYV7GJdQiMA/wordle-example.jfif?psid=1&width=2560&height=1185"
+        style="width:400px;height:50px;">
+    <p> You should enter BGYGY in the textbox </p>
+    <p> Refer to the following link for a Demo <a href="https://youtu.be/VZI2RRafCtw">SamWordle Demo</a>
+    </p>
+    <hr>
+    <br>
+    <br>
 
+    <form action="" method="post">
+        {% csrf_token %}
+        <p style="color: red; font-size: 16px;"> {{error_msg}}</p>
 
-        <form action="" method="post">
-            {% csrf_token %}
-            <p style="color: red; font-size: 16px;"> {{error_msg}}</p>
-            <label for="your_options">Your Options: </label>
-            <input id="your_options" type="text" name="your_options">
-            <input type="submit" value="OK">
-        </form>
-        <h4>List is </h4>
-        <ul>
-            {% for i in list %}
-            <li>{{ i }}</li>
+        <label for="word_list">Your Guess Word List: </label>
+        <select name="selected_word">
+            {% for word in word_list %}
+            <option value="{{ word }}">{{ word }}</option>
             {% endfor %}
-        </ul>
-    </div>
+        </select>
+        <br>
+        <label for="your_options">Your Options: </label>
+        <input id="your_options" type="text" name="your_options">
+        <input type="submit" value="OK">
+    </form>
+    <h4>Selected Options </h4>
+    <ul>
+        {% for i in list %}
+        <li>{{ i }}</li>
+        {% endfor %}
+    </ul>
 </body>
 
 </html>

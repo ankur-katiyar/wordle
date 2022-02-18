@@ -1,4 +1,3 @@
-import random
 import re
 import numpy as np
 import pandas as pd
@@ -6,7 +5,7 @@ import pandas as pd
 from sys import platform
 
 if platform == "win32":
-    file_name = "./data/words.csv"
+    file_name = "./samwordle/data/words.csv"
 else:
     file_name = "./wordle/samwordle/data/words.csv"
 
@@ -14,9 +13,9 @@ logging = False
 
 
 class Wordle:
-    def __init__(self, letters=5):
+    def __init__(self, letters=5, word_bank=[]):
         self.letters = 5
-        self.wordleBank = WordBank(self.letters)
+        self.wordleBank = WordBank(self.letters, word_bank)
         self.word_list = list()
 
     def process_word(self, word):
@@ -27,11 +26,30 @@ class Wordle:
         self.wordleBank.reduce_word_bank(self.word_list[-1])
         # self.wordleBank.set_score(self.letters)
 
+    def handle_input(self, guess, input_mask=False):
+        if not input_mask:
+            input_mask = input(
+                "\nNow enter the output in ##### format where # can be in B, G or Y. B represents a black tile, G a green tile and Y represents Yellow Tile\n"
+            )
+        if input_mask == "GGGGG":
+            return "GGGGG"
+        word = []
+        for x in range(len(guess)):
+            word.append((guess[x], input_mask[x]))
+        if logging:
+            print(f"Word mask is ==> {word}")
+        return word
+
 
 class WordBank:
-    def __init__(self, letters, f_name=file_name):
+    def __init__(self, letters, df_dict, f_name=file_name):
         self.vowels = ["A", "E", "I", "O", "U", "Y"]
-        w_bank = pd.read_csv(f_name)
+        if df_dict == []:
+            w_bank = pd.read_csv(f_name)
+        else:
+            labels = ["words"]
+            w_bank = pd.DataFrame.from_records(df_dict, labels)
+
         w_bank = w_bank[w_bank["words"].str.len() == letters]
         w_bank["words"] = w_bank["words"].str.upper()  # Convert all words to uppercase
         w_bank["v-count"] = (
@@ -196,19 +214,6 @@ class WordBank:
             print(word)
 
 
-def handle_input(guess):
-    input_mask = input(
-        "\nNow enter the output in ##### format where # can be in B, G or Y. B represents a black tile, G a green tile and Y represents Yellow Tile\n"
-    )
-    if input_mask == "GGGGG":
-        return "GGGGG"
-    word = []
-    for x in range(len(guess)):
-        word.append((guess[x], input_mask[x]))
-    print(f"Word mask is ==> {word}")
-    return word
-
-
 def main():
     wordle = Wordle()
     wordle.wordleBank.calc_letter_probs(wordle.letters)
@@ -218,7 +223,7 @@ def main():
     guess = "CRANE"
     print(f"Starting the game, the word that you should start with is ==> {guess}")
 
-    input_mask = handle_input(guess)
+    input_mask = wordle.handle_input(guess)
     # print(word)
 
     while input_mask != "GGGGG":
@@ -230,9 +235,9 @@ def main():
         print(word_list)
         guess = input("Enter on of the words from the above list ==> ")
         print(f"The next word that you selected ==> {guess}")
-        input_mask = handle_input(guess)
+        input_mask = wordle.handle_input(guess)
 
-    print(wordle.word_list)
+    # print(wordle.word_list)
     # print(wordle.wordleBank.w_bank.to_string())
     # print(wordle.wordleBank.w_bank.head())
     # data_with_name = wordle.wordleBank.w_bank.set_index("words")
