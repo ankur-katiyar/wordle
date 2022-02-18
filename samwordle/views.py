@@ -89,7 +89,8 @@ def request_wordle(request):
     mask = ""
     for i in range(5):
         print("DATA: ", request.POST.get("mask" + str(i)))
-        mask = mask + request.POST.get("mask" + str(i))
+        if request.POST.get("mask" + str(i)):
+            mask = mask + request.POST.get("mask" + str(i))
 
     print(f" Your u_inp is -->         {u_inp}")
     print(f" Your selected_word is --> {selected_word}")
