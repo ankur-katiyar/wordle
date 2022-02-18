@@ -81,7 +81,7 @@ def index(request):
 
     if u_inp.upper() == "GGGGG":
         save_session_vars(request, [], ["CRANE"])
-        return return_HttpResponse(request, [], ["CRANE"], "New Game restarted!")
+        return return_HttpResponse(request, [], ["CRANE"], "New Game started!")
 
     select_list.append(selected_word)
     wordle = Wordle(word_list)
@@ -93,6 +93,8 @@ def index(request):
     wordle.wordleBank.calc_letter_probs(wordle.letters)
     word_list = wordle.wordleBank.get_word(wordle.letters)
 
+    if selected_word in word_list:
+        word_list.remove(selected_word)
     print("--------------------------------------------------------------------")
     print("------- E N D --------T H E ------P R O C E S S I N G --------------")
     print("--------------------------------------------------------------------")
