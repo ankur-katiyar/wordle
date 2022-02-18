@@ -9,7 +9,7 @@ if platform == "win32":
 else:
     file_name = "./wordle/samwordle/data/words.csv"
 
-logging = True
+logging = False
 
 
 class Wordle:
