@@ -63,15 +63,30 @@
             text-transform: uppercase;
         }
 
+        .selectedword {
+            background: #fffbef;
+            border-radius: 4px;
+            border: 1px solid #e8ddbd;
+            color: #593230;
+            display: inline-block;
+            font-weight: 700;
+            font-family: sans-serif;
+            font-size: 14px;
+            line-height: 26px;
+            margin: 3px 1px;
+            min-width: 14px;
+            padding: 0 4px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+
 
         footer {
-            text-align: left;
-            padding: 3px;
-            background-color: white;
-            bottom: 1;
-            position: fixed;
-            color: white;
-            display: block;
+            max-width: max-content;
+            text-align: center;
+            margin: auto;
+            height: 100%;
         }
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -156,39 +171,39 @@
     <br>
 
     <h4 style="color: darkgreen; font-size: 15px; font-family: Verdana, sans-serif;">Selected Words </h4>
-    <ul style="color: darkblue; font-size: 13px; font-family: Verdana, sans-serif;">
+    <!-- <ul style="color: darkblue; font-size: 13px; font-family: Verdana, sans-serif;">
         {% for i in list %}
         <li style="  list-style-type: none; margin-left: -30px; padding-right: 0;">{{ i }}</li>
         {% endfor %}
-    </ul>
-    <br><br>
-    <hr>
-    <br>
-    <h3 style="margin: 0px; font-size: 18px; color: black; text-align: center; font-family: Arial;">
-        <span>Ankur Katiyar</span>
-    </h3>
-    <p style="margin: 0px; color: rgb(154, 154, 154); font-size: 14px; line-height: 22px; font-family: Arial;">
-        <span>caffeine-to-code converter</span>
-    </p>
-    <div style="margin-left: 0px; margin-right: 5px; font-family: Arial; ">
-        <a href="https://www.linkedin.com/in/ankur-katiyar/">
-            <i class="fa fa-linkedin"></i>
-        </a>
-        <a href=" https://twitter.com/ankurkatiyar" target="_blank">
-            <i class='fa fa-twitter'></i>
-        </a>
-        <a href="https://github.com/ankur-katiyar" target="_blank">
-            <i class="fa fa-github"></i>
-        </a>
-    </div>
-    <a href="https://github.com/ankur-katiyar/wordle"
-        style="color: black; font-size: 10px; font-family: Arial, sans-serif; text-align: left;">
-        source</label>
-    </a>
+    </ul> -->
+    <div name="selectwordcontainer" class="selectcontainer">
+        <div name="selectwords" class="selectwords">
+            {% for item in list %}
+            {% for char in item %}
+            <div style="color: darkblue; font-size: 15px; font-family: Verdana, sans-serif;" name="selectword"
+                class="selectedword">{{char}}</div>
+            {% endfor %}
+            <br>
+            {% endfor %}
+        </div>
 
+        <div name="selectmasks" class="selectmasks" style="display: none;">
+            {% for item in mask_list %}
+            {% for char in item %}
+            <div name="selectmask" class="selectedmask">{{char}}</div>
+            {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
 
     <script>
         var divItems = document.getElementsByClassName("word");
+        var selectItems = document.getElementsByClassName("selectedword");
+        var maskedItems = document.getElementsByClassName("selectedmask");
         window.onload = init;
 
         function setValueOfColors(value) {
@@ -259,6 +274,32 @@
             //document.getElementById("Colored_Word").setAttribute('value', selected_word.selected_word.value);
             //console.log(Colored_Word);
             setValueOfColors(selected_word.selected_word.value);
+            setSelectedWord();
+        }
+
+
+        function setSelectedWord() {
+            console.log("Now in Selected word!!!");
+            console.log(selectItems);
+            console.log(maskedItems);
+
+            for (var i = 0; i < selectItems.length; i++) {
+                var color = maskedItems[i].textContent;
+                var item = selectItems[i];
+                console.log("Ankur");
+                console.log(color);
+                console.log(item);
+                //item.style.backgroundColor = 'grey';
+                if (color == 'B') {
+                    item.style.backgroundColor = 'grey'
+                }
+                else if (color == 'Y') {
+                    item.style.backgroundColor = 'yellow'
+                }
+                else if (color == 'G') {
+                    item.style.backgroundColor = 'green'
+                }
+            }
         }
 
         function reset_wordle() {
@@ -293,6 +334,33 @@
 </body>
 
 <footer>
+    <br>
+    <br>
+    <br>
+    <br>
+    <hr>
+    <h3 style="margin: 0px; font-size: 18px; color: black; text-align: center; font-family: Arial;">
+        <span>Ankur Katiyar</span>
+    </h3>
+    <p style="margin: 0px; color: rgb(154, 154, 154); font-size: 14px; line-height: 22px; font-family: Arial;">
+        <span>caffeine-to-code converter</span>
+    </p>
+    <div style="margin-left: 0px; margin-right: 5px; font-family: Arial; ">
+        <a href="https://www.linkedin.com/in/ankur-katiyar/">
+            <i class="fa fa-linkedin"></i>
+        </a>
+        <a href=" https://twitter.com/ankurkatiyar" target="_blank">
+            <i class='fa fa-twitter'></i>
+        </a>
+        <a href="https://github.com/ankur-katiyar" target="_blank">
+            <i class="fa fa-github"></i>
+        </a>
+    </div>
+    <a href="https://github.com/ankur-katiyar/wordle"
+        style="color: black; font-size: 10px; font-family: Arial, sans-serif; text-align: left;">
+        source</label>
+    </a>
+
 </footer>
 
 </html>
